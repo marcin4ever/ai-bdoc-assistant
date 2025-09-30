@@ -1,0 +1,82 @@
+[
+    {
+        "Reservation": "100001",
+        "Material": "00010010",
+        "ReqQty": 10,
+        "PickedQty": 5,
+        "PickedBy": "Marcin",
+        "StockQty": 12
+    },
+    {
+        "Reservation": "100002",
+        "Material": "00010020",
+        "ReqQty": 8,
+        "PickedQty": 8,
+        "PickedBy": "Anna",
+        "StockQty": 20
+    },
+    {
+        "Reservation": "100003",
+        "Material": "00010030",
+        "ReqQty": 5,
+        "PickedQty": 3,
+        "PickedBy": "John",
+        "StockQty": 6
+    },
+    {
+        "Reservation": "100004",
+        "Material": "00010040",
+        "ReqQty": 12,
+        "PickedQty": 12,
+        "PickedBy": "Lisa",
+        "StockQty": 15
+    },
+    {
+        "Reservation": "100005",
+        "Material": "00010050",
+        "ReqQty": 7,
+        "PickedQty": 2,
+        "PickedBy": "Tom",
+        "StockQty": 9
+    },
+    {
+        "Reservation": "100006",
+        "Material": "00010060",
+        "ReqQty": 9,
+        "PickedQty": 4,
+        "PickedBy": "Eva",
+        "StockQty": 10
+    },
+    {
+        "Reservation": "100007",
+        "Material": "00010070",
+        "ReqQty": 6,
+        "PickedQty": 6,
+        "PickedBy": "Max",
+        "StockQty": 8
+    },
+    {
+        "Reservation": "100008",
+        "Material": "00010080",
+        "ReqQty": 4,
+        "PickedQty": 2,
+        "PickedBy": "Olga",
+        "StockQty": 5
+    },
+    {
+        "Reservation": "100009",
+        "Material": "00010090",
+        "ReqQty": 11,
+        "PickedQty": 0,
+        "PickedBy": "",
+        "StockQty": 11
+    },
+    {
+        "Reservation": "100010",
+        "Material": "00010100",
+        "ReqQty": 15,
+        "PickedQty": 10,
+        "PickedBy": "Chris",
+        "StockQty": 18
+    }
+]

@@ -1,0 +1,30 @@
+{
+  "name": "ai-smart-validator",
+  "private": true,
+  "version": "0.0.0",
+  "homepage": "https://marcin4ever.github.io/ai-smart-validator",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist --repo=https://github.com/marcin4ever/ai-smart-validator.git"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.1",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-spinners": "^0.17.0"
+  }
+}
