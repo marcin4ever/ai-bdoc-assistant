@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
-// import Header from './components/Header';
+import Header from './components/Header';
 import UploadSection from './components/UploadSection';
 import RunControls from './components/RunControls';
 
@@ -256,21 +256,7 @@ return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-slate-50 to-pink-50 py-8">
       <div className="max-w-5xl mx-auto px-4">
         {/* a new hero header (different style + no old Header component) */}
-        <div className="relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur shadow-2xl border border-fuchsia-100">
-          <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-200 via-indigo-200 to-sky-200 opacity-20" />
-          <div className="relative p-8 md:p-10 text-center">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-fuchsia-100 text-fuchsia-700 text-xs font-semibold tracking-wide">
-              BDOC • Monitoring Assistant
-            </span>
-            <h1 className="mt-4 text-4xl md:text-5xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-700 via-indigo-700 to-sky-700">
-              AI BDOC MONITORING ASSISTANT
-            </h1>
-            <p className="mt-3 text-slate-600">
-              Upload BDOC-like error records and run a quick validation — or try RAG with your manual.
-            </p>
-          </div>
-        </div>
-
+        <Header />
         {/* main card */}
         <div className="mt-8 bg-white p-8 shadow-xl rounded-2xl border border-slate-100">
           <UploadSection
