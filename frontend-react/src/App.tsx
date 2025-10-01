@@ -228,7 +228,7 @@ function App() {
     if (!result) return;
 
     const subject = `Validation Result for Item ${recordId + 1}`;
-    const body = `Result: ${result.status}
+    const body = `Result: ${result.result}
 Score: ${result.score}
 Reasoning:
 ${result.llm_reasoning}`;
@@ -362,9 +362,19 @@ return (
                   <div className="text-sm text-gray-600 mt-1 flex gap-4 items-center flex-wrap">
                     <span>
                       <span className="font-semibold">Result:</span>
-                      <span className={`ml-1 font-bold ${result.status === 'OK' ? 'text-green-600' : 'text-red-600'}`}>
-                        {result.status}
-                      </span>
+                      {(() => {
+                        const color =
+                          result.result === 'Reprocess' ? 'text-green-600' :
+                          result.result === 'Delete'    ? 'text-red-600'   :
+                          result.result === 'Fix'       ? 'text-blue-600'  :
+                          result.result === 'Escalate'  ? 'text-orange-600':
+                                                          'text-gray-600'; // Undefined / fallback
+                        return (
+                          <span className={`ml-1 font-bold ${color}`}>
+                            {result.result}
+                          </span>
+                        );
+                      })()}
                     </span>
                   </div>
 
