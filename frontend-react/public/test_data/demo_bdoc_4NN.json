@@ -1,0 +1,32 @@
+[
+  {
+    "guid": "00505692ABCDEF1234567890ABCDEF00",
+    "bdoc_type": "CAT_UPDATE",
+    "queue": "QLOL",
+    "bdoc_message": "House cat refused to update because it was asleep on the SAP keyboard "
+  },
+  {
+    "guid": "00505692ABCDEF1234567890ABCDEF01",
+    "bdoc_type": "COFFEE_CREATE",
+    "queue": "QJAVA",
+    "bdoc_message": "BDOC failed because developer ran out of coffee beans . Suggested fix: escalate to nearest cafe."
+  },
+  {
+    "guid": "00505692ABCDEF1234567890ABCDEF02",
+    "bdoc_type": "SPACESHIP_LAUNCH",
+    "queue": "QMOON",
+    "bdoc_message": "Middleware error: Rocket launch aborted because ABAP reports did not pass pre-flight checks "
+  },
+  {
+    "guid": "00505692ABCDEF1234567890ABCDEF03",
+    "bdoc_type": "JOKE_TRANSMISSION",
+    "queue": "QFUN",
+    "bdoc_message": "Why did the BDOC cross the middleware? To get to the PI system"
+  },
+  {
+    "guid": "00505692ABCDEF1234567890ABCDEF04",
+    "bdoc_type": "UNICORN_SYNC",
+    "queue": "QMAGIC",
+    "bdoc_message": "BDOC could not synchronize unicorn data — table ZUNICORN missing. "
+  }
+]

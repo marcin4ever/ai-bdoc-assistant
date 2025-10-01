@@ -1,0 +1,27 @@
+[
+  {
+    "bdoc_guid": "00505692DA651FD0A7B62325773BD4D5",
+    "bdoc_message": "Business partner 12345 currently locked by user XYZ (SM12)",
+    "context": "BDOC: BP_UPDATE"
+  },
+  {
+    "bdoc_guid": "00505692F7CD1FD0A7B6236A494EB4D6",
+    "bdoc_message": "Contract Object not found for GUID 00505692DA651FD0A69B0FC3969FF4D5",
+    "context": "BDOC: CONTRACT_CREATE"
+  },
+  {
+    "bdoc_guid": "0050569252291FD0A6B26B67FB7934D1",
+    "bdoc_message": "BDOC already processed successfully in later queue (object_id=4711)",
+    "context": "BDOC: ORDER_SAVE"
+  },
+  {
+    "bdoc_guid": "005056926F1B1FD0A7B0C5F22A44F1E3",
+    "bdoc_message": "Mapping entry missing in table CRMC_PRDTY for product type 'ZUTIL'",
+    "context": "BDOC: PRODUCT_CREATE"
+  },
+  {
+    "bdoc_guid": "00505692DA651FD0A69B0FC3969FF4D5",
+    "bdoc_message": "Interface object PRODUCT_INDOBJ cannot be processed — customizing missing",
+    "context": "BDOC: PRODUCT_INBOUND"
+  }
+]

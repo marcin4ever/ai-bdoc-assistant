@@ -28,5 +28,11 @@
     "bdoc_type": "PRODUCT_INBOUND",
     "queue": "Q4",
     "bdoc_message": "Interface object PRODUCT_INDOBJ cannot be processed — customizing missing"
+  },
+  {
+    "guid": "0050569252291FD0A6B26B67FB7AC9AA",
+    "bdoc_type": "UNDEFINED_TEST",
+    "queue": "Q9",
+    "bdoc_message": "The weather in Auckland is sunny today, please enjoy the Matariki weekend!"
   }
 ]
