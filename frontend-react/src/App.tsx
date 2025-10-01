@@ -5,6 +5,7 @@ import { ClipLoader } from 'react-spinners';
 import Header from './components/Header';
 import UploadSection from './components/UploadSection';
 import RunControls from './components/RunControls';
+import { Flag } from "lucide-react";
 
 interface ValidationResult {
   record_id: number | string;
@@ -308,8 +309,6 @@ return (
                 <div key={idx} className="bg-white shadow-md rounded-xl p-4 my-4 border border-gray-200">
                   <div className="flex items-center justify-between">
                     <h3 className="font-semibold text-lg">Item {idx + 1}:</h3>
-
-                    import { Flag } from "lucide-react";
 
                     <button
                       onClick={() => toggleMarked(result.record_id as number)}
