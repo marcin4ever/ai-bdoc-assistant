@@ -9,23 +9,35 @@ import { Flag } from "lucide-react";
 
 interface ValidationResult {
   record_id: number | string;
-  status: string;
+  result: "Reprocess" | "Delete" | "Fix" | "Escalate" | "Undefined";
   llm_reasoning: string;
-  score?: number;
 
   // UI state
   marked?: boolean;
-  accepted?: boolean;
-  rejected?: boolean;
-  retried?: boolean;
-  worklisted?: boolean;
+  reprocessed?: boolean;
+  deleted?: boolean;
+  fixed?: boolean;
+  escalated?: boolean;
+  undefined?: boolean;
 }
 
 function App() {
   const [records, setRecords] = useState<any[]>([]);
   const [results, setResults] = useState<ValidationResult[]>([]);
   const [keySource, setKeySource] = useState<string>('');
-  const [summary, setSummary] = useState<{ ok: number; error: number; avgScore?: string }>({ ok: 0, error: 0 });
+  const [summary, setSummary] = useState<{
+    reprocess: number;
+    delete: number;
+    fix: number;
+    escalate: number;
+    undefined: number;
+  }>({
+    reprocess: 0,
+    delete: 0,
+    fix: 0,
+    escalate: 0,
+    undefined: 0
+  });
   const [loading, setLoading] = useState<boolean>(false);
   const [fileError, setFileError] = useState<string>('');
   const [feedbackItemId, setFeedbackItemId] = useState<number | null>(null);
@@ -97,16 +109,22 @@ function App() {
         worklisted: false,
       }));
 
-      const okCount = resultsWithMarked.filter((r) => r.status === 'OK').length;
-
-      const scored = resultsWithMarked.filter((r) => r.score !== null && r.score !== undefined);
-      const avgScore = scored.length > 0
-        ? (scored.reduce((sum, r) => sum + r.score, 0) / scored.length).toFixed(1)
-        : null;
+      const reprocessCount = resultsWithMarked.filter(r => r.result === "Reprocess").length;
+      const deleteCount = resultsWithMarked.filter(r => r.result === "Delete").length;
+      const fixCount = resultsWithMarked.filter(r => r.result === "Fix").length;
+      const escalateCount = resultsWithMarked.filter(r => r.result === "Escalate").length;
+      const undefinedCount = resultsWithMarked.filter(r => r.result === "Undefined").length;
 
       setResults(resultsWithMarked);
-      setSummary({ ok: okCount, error: resultsWithMarked.length - okCount, avgScore });
-      setKeySource(resData.key_source || 'API Unknown');
+      setSummary({
+        reprocess: reprocessCount,
+        delete: deleteCount,
+        fix: fixCount,
+        escalate: escalateCount,
+        undefined: undefinedCount
+      });
+      setKeySource(resData.key_source || "API Unknown");
+
     } catch (error) {
       console.error('Validation failed:', error);
     } finally {
@@ -178,7 +196,13 @@ function App() {
         : null;
 
       setResults(updatedResults);
-      setSummary({ ok: okCount, error: updatedResults.length - okCount, avgScore });
+      setSummary({
+        reprocess: reprocessCount,
+        delete: deleteCount,
+        fix: fixCount,
+        escalate: escalateCount,
+        undefined: undefinedCount
+      });
     } catch (err) {
       console.error('Retry failed:', err);
       setResults(prev =>
@@ -293,13 +317,25 @@ return (
               <div className="mb-4 space-y-1">
                 <hr className="my-4 border-t border-gray-300" />
                 <p className="font-semibold">Analysis:</p>
-                {summary.ok > 0 && (
-                  <p className="text-green-600 font-bold">🔁 {summary.ok} Reprocess</p>
+
+                {summary.reprocess > 0 && (
+                  <p className="text-green-600 font-bold">🔁 {summary.reprocess} Reprocess</p>
                 )}
-                {summary.error > 0 && (
-                  <p className="text-red-600 font-bold">
-                    🗑️ {summary.error} {summary.error === 1 ? 'Delete' : 'Delete'}
-                  </p>
+
+                {summary.delete > 0 && (
+                  <p className="text-red-600 font-bold">🗑️ {summary.delete} Delete</p>
+                )}
+
+                {summary.fix > 0 && (
+                  <p className="text-blue-600 font-bold">🛠️ {summary.fix} Fix</p>
+                )}
+
+                {summary.escalate > 0 && (
+                  <p className="text-orange-600 font-bold">⚠️ {summary.escalate} Escalate</p>
+                )}
+
+                {summary.undefined > 0 && (
+                  <p className="text-gray-600 font-bold">❓ {summary.undefined} Undefined</p>
                 )}
               </div>
 
@@ -389,7 +425,7 @@ return (
                         onClick={() => handleEmail(result.record_id as number)}
                         className="flex items-center gap-1 px-2 py-1 border border-gray-300 rounded-lg shadow hover:bg-pink-100 hover:shadow-md transition text-sm"
                       >
-                        ✉️ Escalate
+                        ⚠️ Escalate
                       </button>
 
                       <button
