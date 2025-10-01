@@ -312,7 +312,6 @@ return (
 
           {!loading && results.length > 0 && (
             <div className="mt-6">
-              <p className="text-gray-800 mb-2">{keySource}</p>
 
               <div className="mb-4 space-y-1">
                 <hr className="my-4 border-t border-gray-300" />
@@ -362,7 +361,7 @@ return (
 
                   <div className="text-sm text-gray-600 mt-1 flex gap-4 items-center flex-wrap">
                     <span>
-                      <span className="font-semibold">Status:</span>
+                      <span className="font-semibold">Result:</span>
                       <span className={`ml-1 font-bold ${result.status === 'OK' ? 'text-green-600' : 'text-red-600'}`}>
                         {result.status}
                       </span>
