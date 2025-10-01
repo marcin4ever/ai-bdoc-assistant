@@ -300,13 +300,6 @@ return (
                     ❌ {summary.error} {summary.error === 1 ? 'Error' : 'Errors'}
                   </p>
                 )}
-                {summary.avgScore && (
-                  <p className="text-gray-600 font-medium">
-                    {parseFloat(summary.avgScore) >= 8 ? '✅' :
-                     parseFloat(summary.avgScore) >= 5 ? '⚠️' : '❌'}{' '}
-                    Avg Score: {summary.avgScore}/10
-                  </p>
-                )}
               </div>
 
               <hr className="mb-4" />
@@ -345,15 +338,6 @@ return (
                         {result.status}
                       </span>
                     </span>
-
-                    {result.score !== undefined && result.score !== null && (
-                      <span>
-                        <span className="font-semibold">Score:</span>
-                        <span className="ml-1">
-                          {Number.isInteger(result.score) ? result.score : result.score.toFixed(1)}/10
-                        </span>
-                      </span>
-                    )}
                   </div>
 
                   <p className="mt-2 text-gray-700">{result.llm_reasoning}</p>
@@ -385,7 +369,7 @@ return (
                               : 'border-gray-300 hover:bg-red-100 hover:shadow-md'
                         }`}
                       >
-                        {result.rejected ? '❌ Rejected' : '❌ Reject'}
+                        {result.rejected ? '🗑️ Deleted' : '🗑️ Delete'}
                       </button>
 
                       <button
@@ -405,14 +389,14 @@ return (
                         onClick={() => handleFeedbackOpen(result.record_id as number)}
                         className="flex items-center gap-1 px-2 py-1 border border-gray-300 rounded-lg shadow hover:bg-yellow-100 hover:shadow-md transition text-sm"
                       >
-                        💬 Feedback
+                        🛠️ Fix
                       </button>
 
                       <button
                         onClick={() => handleEmail(result.record_id as number)}
                         className="flex items-center gap-1 px-2 py-1 border border-gray-300 rounded-lg shadow hover:bg-pink-100 hover:shadow-md transition text-sm"
                       >
-                        ✉️ Email
+                        ✉️ Escalate
                       </button>
 
                       <button
@@ -424,7 +408,7 @@ return (
                             : 'border-gray-300 hover:bg-gray-100 hover:shadow-md'
                         }`}
                       >
-                        {result.worklisted ? '📋 Added to Worklist' : '📋 Worklist'}
+                        {result.worklisted ? '❓ Unclear' : '❓ Undefined'}
                       </button>
 
                       <button

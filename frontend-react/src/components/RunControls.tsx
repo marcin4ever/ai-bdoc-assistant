@@ -21,7 +21,7 @@ export default function RunControls({ records, runValidation, isValidating }: Pr
               : "bg-rose-600 hover:bg-rose-700 shadow-lg hover:shadow-rose-300/60")
           }
         >
-          ▶︎ Run Validation
+          ▶︎ Run Analysis
         </button>
 
         <button
@@ -34,7 +34,7 @@ export default function RunControls({ records, runValidation, isValidating }: Pr
               : "border-rose-500 text-rose-600 hover:bg-rose-50 shadow")
           }
         >
-          🧠 Run with RAG WM Rules
+          🧠 Run in Expert Mode
         </button>
       </div>
 

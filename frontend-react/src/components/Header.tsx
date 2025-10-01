@@ -1,18 +1,20 @@
-// src/components/Header.tsx
 export default function Header() {
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-rose-50 via-pink-50 to-red-50 shadow-[0_15px_40px_-15px_rgba(244,63,94,0.35)]">
-      <div className="px-6 py-12 md:px-10 text-center">
-        <span className="inline-flex items-center px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-rose-100 text-rose-700">
+    <div
+      className="relative overflow-hidden rounded-3xl bg-cover bg-center"
+      style={{ backgroundImage: "url('/BDOC_back_1.jpg')" }}
+    >
+      <div className="px-6 py-12 md:px-10 text-center bg-white/70 backdrop-blur-sm rounded-3xl">
+        <span className="inline-flex items-center px-3 py-1 text-xs font-semibold tracking-wider text-rose-600 uppercase rounded-full">
           BDOC • Monitoring Assistant
         </span>
 
-        <h1 className="mt-4 text-4xl md:text-6xl font-extrabold text-rose-600 drop-shadow-[0_6px_12px_rgba(244,63,94,0.4)]">
+        <h1 className="mt-4 text-4xl md:text-6xl font-extrabold text-rose-600 drop-shadow">
           AI BDOC MONITORING ASSISTANT
         </h1>
 
-        <p className="mt-3 text-slate-600">
-          BDOC Error Processing | Records Analysis and Validation |  RAG with CRM - Middleware Monitoring
+        <p className="mt-3 text-slate-700">
+          BDOC Error Processing | Records Analysis and Validation | RAG with CRM - Middleware Monitoring
         </p>
       </div>
     </div>
