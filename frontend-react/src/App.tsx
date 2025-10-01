@@ -283,6 +283,12 @@ return (
           <RunControls
             records={records}
             runValidation={runValidation}
+            temperature={temperature}
+            setTemperature={setTemperature}
+            advancedTemp={advancedTemp}
+            setAdvancedTemp={setAdvancedTemp}
+            lastRun={lastRun}
+            setLastRun={setLastRun}
             isValidating={isValidating}
           />
 
