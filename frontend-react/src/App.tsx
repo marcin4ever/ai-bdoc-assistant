@@ -74,11 +74,12 @@ function App() {
     setLoading(true);
     setIsValidating(true);
     try {
+      const defaultTemperature = 0.7;
       const endpoint = `${import.meta.env.VITE_API_URL}/validate`;
       const response = await axios.post(endpoint, {
         records,
         use_rag: useRag,
-        temperature: temperature,
+        temperature: defaultTemperature,
         source: "react",
       });
 
@@ -252,7 +253,7 @@ ${result.llm_reasoning}`;
 return (
   <>
     {/* new background so it looks different than Smart Validator */}
-    <div className="min-h-screen bg-gradient-to-br from-fuchsia-50 via-sky-50 to-emerald-50 py-10">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-slate-50 to-pink-50 py-8">
       <div className="max-w-5xl mx-auto px-4">
         {/* a new hero header (different style + no old Header component) */}
         <div className="relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur shadow-2xl border border-fuchsia-100">
@@ -282,12 +283,6 @@ return (
           <RunControls
             records={records}
             runValidation={runValidation}
-            temperature={temperature}
-            setTemperature={setTemperature}
-            advancedTemp={advancedTemp}
-            setAdvancedTemp={setAdvancedTemp}
-            lastRun={lastRun}
-            setLastRun={setLastRun}
             isValidating={isValidating}
           />
 
@@ -300,7 +295,7 @@ return (
 
           {!loading && results.length > 0 && (
             <div className="mt-6">
-              <p className="text-gray-800 mb-2">API Used: {keySource}</p>
+              <p className="text-gray-800 mb-2">{keySource}</p>
 
               <div className="mb-4 space-y-1">
                 <hr className="my-4 border-t border-gray-300" />
@@ -374,19 +369,19 @@ return (
                   <div className="flex justify-start items-center gap-2 text-sm text-gray-700 border-t pt-2 mt-4 border-gray-200">
                     <div className="flex flex-wrap gap-2 mt-3">
                       <button
-                        disabled={!!result.rejected}
-                        onClick={() => handleAccept(result.record_id as number)}
-                        className={`flex items-center gap-1 px-2 py-1 border rounded-lg shadow transition text-sm ${
-                          result.accepted
-                            ? 'bg-gray-200 text-gray-500'
+                        disabled={result.rejected}
+                        onClick={() => handleAccept(result.record_id)}
+                        className={
+                          `flex items-center gap-1 px-3 py-1 rounded-full shadow transition text-sm ` +
+                          (result.accepted
+                            ? 'bg-rose-200 text-rose-900 font-semibold'
                             : result.rejected
                               ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                              : 'border-gray-300 hover:bg-green-100 hover:shadow-md'
-                        }`}
+                              : 'bg-rose-600 text-white hover:bg-rose-700')
+                        }
                       >
-                        {result.accepted ? '✅ Accepted' : '✅ Accept'}
+                        {result.accepted ? '🔁 Reprocessed' : '🔁 Reprocess'}
                       </button>
-
                       <button
                         disabled={!!result.accepted}
                         onClick={() => handleReject(result.record_id as number)}
@@ -402,15 +397,16 @@ return (
                       </button>
 
                       <button
-                        disabled={!!result.accepted || !!result.rejected || !!result.retried}
-                        onClick={() => handleRetry(result.record_id as number)}
-                        className={`flex items-center gap-1 px-2 py-1 border rounded-lg shadow transition text-sm ${
-                          (result.accepted || result.rejected || result.retried)
+                        disabled={result.accepted || result.rejected || result.retried}
+                        onClick={() => handleRetry(result.record_id)}
+                        className={
+                          `flex items-center gap-1 px-3 py-1 rounded-full shadow transition text-sm ` +
+                          ((result.accepted || result.rejected || result.retried)
                             ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                            : 'border-gray-300 hover:bg-blue-100 hover:shadow-md'
-                        }`}
+                            : 'bg-indigo-600 text-white hover:bg-indigo-700')
+                        }
                       >
-                        {result.retried ? '🔁 Executing...' : '🔁 Retry'}
+                        {result.retried ? '⏳ Executing…' : '↻ Retry'}
                       </button>
 
                       <button

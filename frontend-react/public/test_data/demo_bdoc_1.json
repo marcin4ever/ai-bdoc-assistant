@@ -1,0 +1,47 @@
+[
+  {
+    "id": "BDOC-001",
+    "bdoc_type": "BUS_TRANS_MSG",
+    "queue_name": "R3AD_RESPONSE_CMDC",
+    "error_code": "BUS_TRANS_MSG",
+    "error_text": "Document/transaction is being distributed; changes are not possible",
+    "notes": "Dispute item locked?",
+    "expected_hint": "Check lock / SM12; if needed, use SA38 ZCRM_CHECK_DISTRIBUTION_STATUS then reprocess."
+  },
+  {
+    "id": "BDOC-002",
+    "bdoc_type": "PRODUCT_INDOBJ",
+    "queue_name": "R3AD_PRODUCT",
+    "error_code": "PRODUCT_INDOBJ",
+    "error_text": "address with GUID does not exist for business partner",
+    "notes": "Address GUID missing",
+    "expected_hint": "Validate address existence / selection date and re-trigger replication."
+  },
+  {
+    "id": "BDOC-003",
+    "bdoc_type": "BUAG_MAIN",
+    "queue_name": "R3AD_BUPA_0001",
+    "error_code": "BUAG_MAIN",
+    "error_text": "Business partner does not exist in role Contract Part",
+    "notes": "Customer visible in CRM identification? missing role?",
+    "expected_hint": "Add required Sold-to/Contract role in CRM then reprocess."
+  },
+  {
+    "id": "BDOC-004",
+    "bdoc_type": "R3AD_BEABILLSTACCRMBXX",
+    "queue_name": "R3AD_BEABILLSTACCRMBXX",
+    "error_code": "BEABILLDOCCRMB",
+    "error_text": "Transfer status of billing document inconsistent",
+    "notes": "Inconsistent status on transfer",
+    "expected_hint": "Follow BEABILLDOCCRMB status correction then re-trigger middleware."
+  },
+  {
+    "id": "BDOC-005",
+    "bdoc_type": "BUPA_MAIN",
+    "queue_name": "R3AUBUPA",
+    "error_code": "BUPA_MAIN",
+    "error_text": "No data maintained for standard communication type",
+    "notes": "Communication defaults missing",
+    "expected_hint": "Maintain standard communication type and reprocess."
+  }
+]
