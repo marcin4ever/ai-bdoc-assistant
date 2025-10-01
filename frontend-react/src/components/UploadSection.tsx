@@ -7,20 +7,18 @@ interface UploadSectionProps {
 
 const UploadSection: React.FC<UploadSectionProps> = ({ handleFileChange, loadDemoFile }) => {
     return (
-        <div className="flex items-center gap-4 mb-4">
-            <label className="cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-md border border-gray-300">
-                Choose Your JSON File
-                <input type="file" accept="application/json" onChange={handleFileChange} hidden />
-            </label>
-
-            <span className="text-gray-500 font-medium">or</span>
-
-            <button
-                onClick={loadDemoFile}
-                className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-normal px-3 py-1 rounded-md border border-gray-300"
-            >
-                Use Demo Example
-            </button>
+        <div className="flex flex-col items-start gap-3 mb-6">
+        <button
+            className="w-60 px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-medium rounded-lg shadow-sm transition"
+        >
+            Dataset
+        </button>
+        
+        <button
+            className="w-60 px-4 py-3 bg-sky-100 hover:bg-sky-200 text-sky-700 font-medium rounded-lg shadow-sm transition"
+        >
+            Test Data
+        </button>
         </div>
     );
 };

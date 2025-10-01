@@ -291,13 +291,13 @@ return (
 
               <div className="mb-4 space-y-1">
                 <hr className="my-4 border-t border-gray-300" />
-                <p className="font-semibold">Summary:</p>
+                <p className="font-semibold">Analysis:</p>
                 {summary.ok > 0 && (
-                  <p className="text-green-600 font-bold">✅ {summary.ok} OK</p>
+                  <p className="text-green-600 font-bold">🔁 {summary.ok} Reprocess</p>
                 )}
                 {summary.error > 0 && (
                   <p className="text-red-600 font-bold">
-                    ❌ {summary.error} {summary.error === 1 ? 'Error' : 'Errors'}
+                    🗑️ {summary.error} {summary.error === 1 ? 'Delete' : 'Delete'}
                   </p>
                 )}
               </div>
@@ -409,13 +409,6 @@ return (
                         }`}
                       >
                         {result.worklisted ? '❓ Unclear' : '❓ Undefined'}
-                      </button>
-
-                      <button
-                        disabled
-                        className="flex items-center gap-1 px-2 py-1 border border-gray-300 rounded-lg shadow text-sm bg-gray-200 text-gray-500 cursor-not-allowed"
-                      >
-                        📤 Sync to SAP
                       </button>
                     </div>
                   </div>

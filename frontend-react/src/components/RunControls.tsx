@@ -34,7 +34,7 @@ export default function RunControls({ records, runValidation, isValidating }: Pr
               : "border-rose-500 text-rose-600 hover:bg-rose-50 shadow")
           }
         >
-          🧠 Run in Expert Mode
+          🧑‍💻 Run in Expert Mode
         </button>
       </div>
 
