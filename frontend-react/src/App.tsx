@@ -228,7 +228,7 @@ function App() {
     if (!result) return;
 
     const subject = `Validation Result for Item ${recordId + 1}`;
-    const body = `Status: ${result.status}
+    const body = `Result: ${result.status}
 Score: ${result.score}
 Reasoning:
 ${result.llm_reasoning}`;
