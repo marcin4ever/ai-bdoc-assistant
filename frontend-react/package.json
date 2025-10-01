@@ -1,15 +1,15 @@
 {
-  "name": "ai-smart-validator",
+  "name": "ai-bdoc-assistant",
   "private": true,
-  "version": "0.0.0",
-  "homepage": "https://marcin4ever.github.io/ai-smart-validator",
+  "version": "1.0.0",
+  "homepage": "https://marcin4ever.github.io/ai-bdoc-assistant",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist --repo=https://github.com/marcin4ever/ai-smart-validator.git"
+    "deploy": "gh-pages -d dist --repo=https://github.com/marcin4ever/ai-bdoc-assistant.git"
   },
   "devDependencies": {
     "@types/react": "^19.1.8",
